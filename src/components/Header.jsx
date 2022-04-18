@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unused-state */
 import React from 'react';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
