@@ -7,7 +7,7 @@ import Favorites from './components/Favorites';
 import Profile from './components/Profile';
 import ProfileEdit from './components/ProfileEdit';
 import NotFound from './components/NotFound';
-import { createUser, getUser } from './services/userAPI';
+import { createUser } from './services/userAPI';
 import Loading from './components/Loading';
 
 class App extends React.Component {
@@ -90,7 +90,7 @@ class App extends React.Component {
     // const {  } = this.state;
     return (
       <div>
-        {this.renderRoutes()}
+        { this.renderRoutes() }
       </div>
     );
   }
