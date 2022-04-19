@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Header from './Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from './Loading';
-// import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 class Search extends React.Component {
   constructor() {
@@ -34,10 +33,8 @@ class Search extends React.Component {
     }, async () => {
       const searchObject = await searchAlbumsAPI(search);
       this.setState({ search: '', loaded: true, searchObject });
-      // this.buildSearch(await searchObject);
     });
   }
-  // <img key={ index } src={ album.artworkUrl100 } alt="" />
 
   buildSearch = () => {
     const { searched, searchObject } = this.state;
