@@ -44,20 +44,22 @@ class Album extends React.Component {
         key={ index }
         trackName={ track.trackName }
         previewUrl={ track.previewUrl }
+        trackId={ track.trackId }
+        track={ track }
+        index={ index }
       />
     ));
   }
 
   render() {
     const { artistName, collectionName, artworkUrl100, loaded } = this.state;
-    if (!loaded) return <Loading />;
     return (
       <div data-testid="page-album">
-        {/* <Header /> */}
+        <Header />
         <img src={ artworkUrl100 } alt="" />
         <h1 data-testid="album-name">{ collectionName }</h1>
         <h2 data-testid="artist-name">{ artistName }</h2>
-        <div>{this.renderTracks()}</div>
+        <div>{loaded ? this.renderTracks() : <Loading />}</div>
       </div>
     );
   }
