@@ -87,7 +87,6 @@ class App extends React.Component {
   }
 
   render() {
-    // const {  } = this.state;
     return (
       <>
         { this.renderRoutes() }

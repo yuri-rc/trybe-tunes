@@ -45,12 +45,12 @@ class MusicCard extends React.Component {
   }
 
   render() {
-    const { trackName, previewUrl, trackId } = this.props;
+    const { trackName, previewUrl, trackId, onClick } = this.props;
     const { loaded, checked } = this.state;
     return (
       <>
         {loaded ? null : <Loading />}
-        <p>{ trackName }</p>
+        <p>{trackName}</p>
         <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
           O seu navegador não suporta o elemento
@@ -63,6 +63,7 @@ class MusicCard extends React.Component {
             id={ trackId }
             type="checkbox"
             data-testid={ `checkbox-music-${trackId}` }
+            onClick={ onClick }
             onChange={ this.addFavorite }
             checked={ checked }
           />
@@ -72,11 +73,16 @@ class MusicCard extends React.Component {
   }
 }
 
+MusicCard.defaultProps = {
+  onClick: () => { },
+};
+
 MusicCard.propTypes = {
   trackName: PropTypes.string.isRequired,
   previewUrl: PropTypes.string.isRequired,
   trackId: PropTypes.number.isRequired,
   track: PropTypes.shape({}).isRequired,
+  onClick: PropTypes.func,
 };
 
 export default MusicCard;
