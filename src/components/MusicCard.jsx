@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 // import { Redirect } from 'react-router-dom';
 
@@ -9,24 +9,39 @@ class MusicCard extends React.Component {
     super();
     this.state = {
       loaded: true,
+      checked: false,
     };
   }
 
+  componentDidMount() {
+    this.getFavorite();
+  }
+
+  getFavorite = async () => {
+    const { trackId } = this.props;
+    this.setState({
+      loaded: false,
+    }, async () => {
+      const favoriteSongs = await getFavoriteSongs();
+      const bol = favoriteSongs.some((q) => q.trackId === trackId);
+      console.log(bol);
+      this.setState({ loaded: true, checked: bol });
+    });
+  }
+
   addFavorite = () => {
-    // console.log('click');
     const { track } = this.props;
     this.setState({
       loaded: false,
     }, async () => {
       await addSong(track);
-      this.setState({ loaded: true });
+      this.setState({ loaded: true, checked: true });
     });
-    // console.log(await getFavoriteSongs());
   }
 
   render() {
-    const { trackName, previewUrl, trackId, index } = this.props;
-    const { loaded } = this.state;
+    const { trackName, previewUrl, trackId } = this.props;
+    const { loaded, checked } = this.state;
     return (
       <>
         {loaded ? null : <Loading />}
@@ -37,13 +52,14 @@ class MusicCard extends React.Component {
           <code>audio</code>
           .
         </audio>
-        <label htmlFor={ index }>
+        <label htmlFor={ trackId }>
           Favorita
           <input
-            id={ index }
+            id={ trackId }
             type="checkbox"
             data-testid={ `checkbox-music-${trackId}` }
             onClick={ this.addFavorite }
+            checked={ checked }
           />
         </label>
       </>
@@ -55,7 +71,6 @@ MusicCard.propTypes = {
   trackName: PropTypes.string.isRequired,
   previewUrl: PropTypes.string.isRequired,
   trackId: PropTypes.number.isRequired,
-  index: PropTypes.number.isRequired,
   track: PropTypes.shape({}).isRequired,
 };
 
