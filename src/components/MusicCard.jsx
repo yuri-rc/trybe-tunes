@@ -23,9 +23,8 @@ class MusicCard extends React.Component {
       loaded: false,
     }, async () => {
       const favoriteSongs = await getFavoriteSongs();
-      const bol = favoriteSongs.some((q) => q.trackId === trackId);
-      console.log(bol);
-      this.setState({ loaded: true, checked: bol });
+      const isFavorite = favoriteSongs.some((song) => song.trackId === trackId);
+      this.setState({ loaded: true, checked: isFavorite });
     });
   }
 
