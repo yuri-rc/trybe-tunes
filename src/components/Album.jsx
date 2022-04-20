@@ -56,10 +56,16 @@ class Album extends React.Component {
     return (
       <div data-testid="page-album">
         <Header />
-        <img src={ artworkUrl100 } alt="" />
-        <h1 data-testid="album-name">{ collectionName }</h1>
-        <h2 data-testid="artist-name">{ artistName }</h2>
-        <div>{loaded ? this.renderTracks() : <Loading />}</div>
+        {loaded ? (
+          <>
+            <img src={ artworkUrl100 } alt="" />
+            <h1 data-testid="album-name">{ collectionName }</h1>
+            <h2 data-testid="artist-name">{ artistName }</h2>
+            {this.renderTracks()}
+          </>
+        )
+          : <Loading /> }
+        {/* <div>{loaded ? this.renderTracks() : <Loading />}</div> */}
       </div>
     );
   }

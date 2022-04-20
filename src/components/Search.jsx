@@ -51,8 +51,8 @@ class Search extends React.Component {
               >
                 <div>
                   <img src={ album.artworkUrl100 } alt="" />
-                  <p>{ album.collectionName }</p>
-                  <p>{ album.artistName }</p>
+                  <p>{album.collectionName}</p>
+                  <p>{album.artistName}</p>
                 </div>
               </Link>
             </div>
