@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { Redirect } from 'react-router-dom';
+import './Login.css';
+import logo from '../images/LOGO_POSITIVA 1.svg';
 
 class Login extends React.Component {
   render() {
     const { onChange, onClick, disable } = this.props;
     return (
-      <div data-testid="page-login">
+      <div className="component" data-testid="page-login">
+        <img src={ logo } alt="trybetynes logo" />
         <form>
           <input
+            placeholder="Nome"
             onChange={ onChange }
             type="text"
             data-testid="login-name-input"
