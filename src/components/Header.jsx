@@ -30,7 +30,7 @@ class Header extends React.Component {
     if (!loaded) return <Loading />;
     return (
       <header className="header-component" data-testid="header-component">
-        <section>
+        <section className="header-section">
           <img className="logo-img" src={ logo } alt="trybetynes logo" />
           <section className="user-section">
             <img className="user-icon" src={ userIcon } alt="user icon" />

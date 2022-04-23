@@ -1,0 +1,90 @@
+.album-content {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 161px;
+}
+
+.album-content img {
+  width: 290px;
+}
+
+.album-content h1 {
+  color: #023031;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 37px;
+}
+
+.album-content h2 {
+  color: #023031;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 25px;
+  margin-top: 10px;
+}
+
+.album-section {
+  width: 290px;
+}
+
+.render-component {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 436px;
+  overflow: auto;
+  width: 728px;
+}
+
+.track-item {
+  align-items: center;
+  border-bottom: 1px solid #e1e5eb;
+  border-top: 1px solid #e1e5eb;
+  display: flex;
+  justify-content: space-between;
+}
+
+.track-name {
+  font-size: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 270px;
+
+}
+
+.checkbox-container {
+  text-align: center;
+  width: 100px;
+}
+
+.custom-checkbox input {
+  display: none;
+}
+
+.custom-checkbox input + .check:before {
+  background-image: url('https://img.icons8.com/ios/25/000000/hearts--v1.png');
+  border: 4px;
+  content: '';
+  display: inline-block;
+  height: 25px;
+  vertical-align: middle;
+  width: 25px;
+}
+
+.custom-checkbox input:checked + .check:before {
+  background-image: url('https://img.icons8.com/ios-filled/25/000000/hearts.png');
+}
+
+.check:hover {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  background-color: #1d1d1d5b;
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #5b5b5bba;
+}

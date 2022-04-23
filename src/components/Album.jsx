@@ -4,7 +4,7 @@ import Header from './Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from './MusicCard';
 import Loading from './Loading';
-// import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import './Album.css';
 
 class Album extends React.Component {
   constructor() {
@@ -16,8 +16,6 @@ class Album extends React.Component {
       fullObject: [],
       loaded: false,
     };
-
-    // this.render = this.render.bind(this);
   }
 
   componentDidMount() {
@@ -57,12 +55,16 @@ class Album extends React.Component {
       <div data-testid="page-album">
         <Header />
         {loaded ? (
-          <>
-            <img src={ artworkUrl100 } alt="" />
-            <h1 data-testid="album-name">{ collectionName }</h1>
-            <h2 data-testid="artist-name">{ artistName }</h2>
-            {this.renderTracks()}
-          </>
+          <div className="album-content">
+            <section className="album-section">
+              <img src={ artworkUrl100 } alt="" />
+              <h1 data-testid="album-name">{ collectionName }</h1>
+              <h2 data-testid="artist-name">{ artistName }</h2>
+            </section>
+            <section className="render-component">
+              {this.renderTracks()}
+            </section>
+          </div>
         )
           : <Loading /> }
         {/* <div>{loaded ? this.renderTracks() : <Loading />}</div> */}

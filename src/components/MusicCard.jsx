@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
-import Loading from './Loading';
-// import { Redirect } from 'react-router-dom';
+import './Album.css';
 
 class MusicCard extends React.Component {
   constructor() {
@@ -48,27 +47,32 @@ class MusicCard extends React.Component {
     const { trackName, previewUrl, trackId, onClick } = this.props;
     const { loaded, checked } = this.state;
     return (
-      <>
-        {loaded ? null : <Loading />}
-        <p>{trackName}</p>
+      <div className="track-item">
+        <p className="track-name">{trackName}</p>
         <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
           O seu navegador não suporta o elemento
           <code>audio</code>
           .
         </audio>
-        <label htmlFor={ trackId }>
-          Favorita
-          <input
-            id={ trackId }
-            type="checkbox"
-            data-testid={ `checkbox-music-${trackId}` }
-            onClick={ onClick }
-            onChange={ this.addFavorite }
-            checked={ checked }
-          />
-        </label>
-      </>
+        <section className="checkbox-container">
+          {loaded ? (
+            <div className="custom-checkbox">
+              <label htmlFor={ trackId }>
+                <input
+                  id={ trackId }
+                  type="checkbox"
+                  data-testid={ `checkbox-music-${trackId}` }
+                  onClick={ onClick }
+                  onChange={ this.addFavorite }
+                  checked={ checked }
+                />
+                <span className="check" />
+              </label>
+            </div>
+          ) : <p>Carregando...</p>}
+        </section>
+      </div>
     );
   }
 }
