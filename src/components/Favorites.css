@@ -1,0 +1,26 @@
+.favorite-h1 {
+  font-family: Roboto , sans-serif;
+  font-weight: 300;
+  margin-bottom: 72px;
+  margin-left: 170px;
+  margin-top: 113px;
+}
+
+.favorites-component {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+  padding-bottom: 113px;
+}
+
+.favorite-music {
+  display: flex;
+  justify-content: space-around;
+  width: 780px;
+}
+
+.favorite-music img {
+  border-radius: 50%;
+  width: 61px;
+}

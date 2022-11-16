@@ -63,9 +63,26 @@ class App extends React.Component {
             <Album { ...props } />
           ) }
         />
-        <Route exact path="/search" render={ () => (<Search />) } />
-        <Route exact path="/favorites" render={ () => (<Favorites />) } />
-        <Route exact path="/profile" render={ () => (<Profile />) } />
+        <Route
+          exact
+          path="/search"
+          render={ () => (
+            <Search />) }
+        />
+        <Route
+          exact
+          path="/favorites"
+          render={ () => (
+            <Favorites />
+          ) }
+        />
+        <Route
+          exact
+          path="/profile"
+          render={ () => (
+            <Profile />
+          ) }
+        />
         <Route
           exact
           path="/profile/:edit"

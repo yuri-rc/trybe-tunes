@@ -45,12 +45,13 @@
 }
 
 .track-name {
+  font-family: Roboto , sans-serif;
   font-size: 22px;
+  font-weight: 700;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 270px;
-
 }
 
 .checkbox-container {

@@ -1,0 +1,38 @@
+.profile-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 104px;
+}
+
+.profile-content > section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 288px;
+}
+
+.profile-content h1, p {
+  color: #3d495c;
+}
+
+.image-button-section {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Link {
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid #003be5;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #003be5;
+  display: flex;
+  height: 32px;
+  justify-content: center;
+  text-decoration: none;
+  width: 119px;
+}

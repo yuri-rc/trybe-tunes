@@ -3,6 +3,7 @@ import Header from './Header';
 import { getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 import MusicCard from './MusicCard';
+import './Favorites.css';
 // import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 class Favorites extends React.Component {
@@ -11,7 +12,6 @@ class Favorites extends React.Component {
     this.state = {
       loaded: true,
       favoriteSongs: [],
-      // checked: false,
     };
   }
 
@@ -43,15 +43,20 @@ class Favorites extends React.Component {
     const { favoriteSongs } = this.state;
     if (favoriteSongs.length > 0) {
       return favoriteSongs.map((track, index) => (
-        <MusicCard
+        <div
           key={ index }
-          trackName={ track.trackName }
-          previewUrl={ track.previewUrl }
-          trackId={ Number(track.trackId) }
-          track={ track }
-          index={ index }
-          onClick={ this.onClick }
-        />
+          className="favorite-music"
+        >
+          <img src={ track.artworkUrl100 } alt="" />
+          <MusicCard
+            trackName={ track.trackName }
+            previewUrl={ track.previewUrl }
+            trackId={ Number(track.trackId) }
+            track={ track }
+            index={ index }
+            onClick={ this.onClick }
+          />
+        </div>
       ));
     }
   }
@@ -61,7 +66,10 @@ class Favorites extends React.Component {
     return (
       <div data-testid="page-favorites">
         <Header />
-        {loaded ? this.setFavorites() : <Loading />}
+        <h1 className="favorite-h1">Músicas favoritas:</h1>
+        <section className="favorites-component">
+          {loaded ? this.setFavorites() : <Loading />}
+        </section>
       </div>
     );
   }

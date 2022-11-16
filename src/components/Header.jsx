@@ -26,8 +26,9 @@ class Header extends React.Component {
 
   render() {
     const { user, loaded } = this.state;
-    // const userName = <p data-testid="header-user-name">{ user.name }</p>;
+    const selectedStyle = { backgroundColor: '#036B52', color: 'white' };
     if (!loaded) return <Loading />;
+    const location = window.location.pathname;
     return (
       <header className="header-component" data-testid="header-component">
         <section className="header-section">
@@ -43,6 +44,8 @@ class Header extends React.Component {
           <Link
             data-testid="link-to-search"
             to="/search"
+            style={ location === '/search'
+              ? selectedStyle : null }
             className="link"
           >
             Search
@@ -50,6 +53,8 @@ class Header extends React.Component {
           <Link
             data-testid="link-to-favorites"
             to="/favorites"
+            style={ location === '/favorites'
+              ? selectedStyle : null }
             className="link"
           >
             Favorites
@@ -57,9 +62,11 @@ class Header extends React.Component {
           <Link
             data-testid="link-to-profile"
             to="/profile"
+            style={ location === '/profile' || location === '/profile/edit'
+              ? selectedStyle : null }
             className="link"
           >
-            Perfil
+            <button type="button">Click</button>
           </Link>
         </nav>
       </header>
