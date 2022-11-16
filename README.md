@@ -1,2 +1,2 @@
-Repositório do projeto de um aplicativo de músicas consumindo apis feito no curso da Trybe.
+Repositório do projeto de um aplicativo de músicas consumindo apis feito no curso da Trybe. <br/>
 Esse projeto contém arquivos que foram criados pela equipe da Trybe, os códigos de minha autoria estão dentro da pasta "src"
